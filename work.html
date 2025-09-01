@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>survey form</title>
+    <style>
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #6b73ff 0%, #000dff 100%);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    padding: 40px 50px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 20px rgba(0, 13, 255, 0.4);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    color: #222;
+    animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#title {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 0.2em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #16a085;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#description {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 1.8em;
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #2980b9;
+}
+
+input[type="text"], input[type="email"], input[type="number"], select, textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 2px solid #6b73ff;
+    font-size: 1rem;
+    font-weight: 500;
+    background: #f9f9f9;
+    color: #222;
+    box-shadow: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    resize: vertical;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #16a085;
+    box-shadow: 0 0 8px 3px #16a08555;
+}
+
+.radio-group, .checkbox-group {
+    margin-bottom: 20px;
+    color: #222;
+    user-select: none;
+}
+
+.radio-group label, .checkbox-group label {
+    margin-left: 8px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    accent-color: #6b73ff;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background-color: #1abc9c;
+    border: none;
+    border-radius: 15px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 1.8px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(34, 34, 204, 0.7);
+    transition: background-color 00.4s ease, transform 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #16a085;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(34, 34, 204, 0.9);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 10px rgba(34, 34, 204, 0.7);
+}
+
+@media (max-width: 520px) {
+    .container {
+        padding: 30px 20px;
+    }
+    #title {
+        font-size: 22.2rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1 id="title">Survey Form</h1>
+    <p id="description">Thank you for taking the time to help us improve our platform!</p>
+    <form id="survey-form">
+        <label id="name-label" for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        
+        <label id="email-label" for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        
+        <label id="number-label" for="number">Age:</label>
+        <input type="number" id="number" name="age" min="10" max="100" placeholder="Enter your age">
+        
+        <label for="dropdown">Which option best describes your current role?</label>
+        <select id="dropdown" name="role">
+            <option value="">Select an option</option>
+            <option value="student">Student</option>
+            <option value="full-time-job">Full Time Job</option>
+            <option value="full-time-learner">Full Time Learner</option>
+            <option value="prefer-not-to-say">Prefer not to say</option>
+            <option value="other">Other</option>
+        </select>
+        
+        <label>Would you recommend our platform to a friend?</label>
+        <div class="radio-group">
+            <input type="radio" id="definitely" name="recommend" value="definitely">
+            <label for="definitely">Definitely</label><br>
+            <input type="radio" id="maybe" name="recommend" value="maybe">
+            <label for="maybe">Maybe</label><br>
+            <input type="radio" id="not-sure" name="recommend" value="not-sure">
+            <label for="not-sure">Not sure</label>
+        </div>
+        
+        <label>What would you like to see improved? (Check all that apply)</label>
+        <div class="checkbox-group">
+            <input type="checkbox" id="front-end" name="improvement" value="front-end">
+            <label for="front-end">Front-end Projects</label><br>
+            <input type="checkbox" id="back-end" name="improvement" value="back-end">
+            <label for="back-end">Back-end Projects</label><br>
+            <input type="checkbox" id="data-visualization" name="improvement" value="data-visualization">
+            <label for="data-visualization">Data Visualization</label><br>
+            <input type="checkbox" id="challenges" name="improvement" value="challenges">
+            <label for="challenges">Challenges</label><br>
+            <input type="checkbox" id="Open Source Community" name="improvement" value="Open Source Community">
+            <label for="Open Source Community">Open Source Community</label><br>
+            <input type="checkbox" name="improvement" id="gitter help rooms" value="gitter help rooms">
+            <label for="gitter help rooms">gitter help rooms</label><br>
+            <input type="checkbox" name="improvement" id="videos" value="videos">
+            <label for="videos">videos</label><br>
+            <input type="checkbox" name="improvement" id="city meetups" value="city meetups">
+            <label for="city meetups">city meetups</label><br>
+            <input type="checkbox" name="improvement" id="Wiki" value="Wiki">
+            <label for="Wiki">Wiki</label><br>
+            <input type="checkbox" name="improvement" id="forum" value="forum">
+            <label for="forum">forum</label><br>
+            <input type="checkbox" name="improvement" id="Additional courses" value="Additional courses">
+            <label for="Additional courses">Additional courses</label>
+        </div>
+        
+        <label for="comments">Any comments or suggestions?</label>
+        <textarea id="comments" name="comments" placeholder="Enter your comments here..."></textarea>
+        
+        <button type="submit" id="submit">Submit</button>
+    </form>
+</div>
+</body>
+</html>
+</body>
+</html>
